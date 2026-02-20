@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!doctype html>
 
-</body>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Detector de Placas</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Leitor de Placas com OCR</h1>
+      <p>Envie uma imagem de um carro para detectar a placa.</p>
+
+      ```
+      <form
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+        class="upload-box"
+      >
+        <input type="file" name="image" accept="image/*" required />
+        <button type="submit">Enviar imagem</button>
+      </form>
+
+      {% if plate %}
+      <div class="result">
+        <h2>Placa detectada</h2>
+        <div class="plate-box">{{ plate }}</div>
+      </div>
+      {% endif %} {% if image_url %}
+      <div class="preview">
+        <h2>Imagem enviada</h2>
+        <img src="{{ image_url }}" alt="Imagem enviada" />
+      </div>
+      {% endif %} ```
+    </div>
+  </body>
 </html>
